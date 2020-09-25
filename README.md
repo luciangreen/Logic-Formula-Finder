@@ -24,7 +24,7 @@ Please read the following instructions on how to install the project on your com
 ```
 ?- logic_ff1([[a, true],[b,false],[c,true],[d,false]],[[a,true],[b,false],[c,true],[d,false]], [true],F).
 ```
-to find formulae with a=true, b=false, c=true with a result true and some results:
+to find formulae with a=true, b=false, c=true with a result true and some results (the second argument must be the same as the first, but is not a second spec set):
 ```
 F = [[[a, or, d], and, c], or, b] ;
 F = [[a, and, [c, or, d]], or, b] ;
