@@ -1,20 +1,32 @@
-%% v
-
-%% logic_ff1([[a, 1], [b, 1, 2]],[[a, 1], [b, 1, 2]], [1],F). F = [a, and, b] F = [b, and, a]
-%% logic_ff1([[a, true], [b, false]],[[a, true], [b,  false]], [false],F). F = [a, and, b] F = [b, and, a]
-
 /**
 
-?- logic_ff1([[a, true], [b, false],[c,true],[d,false]],[[a, true], [b,  false],[c,true],[d,false]], [true],F).
-F = [[[a, or, d], and, c], or, b] ;
-F = [[a, and, [c, or, d]], or, b] ;
-F = [[a, and, c], or, [b, and, d]] ;
-F = [[a, and, c], or, [b, or, d]] ;
-F = [not, d] ;
+logic_ff0([
+[[[a, true], [b,  false],[c,true],[d,false]], [true]],
+[[[a, true], [b,  false],[c,false],[d,false]], [true]],
+[[[a, false], [b,  false],[c,true],[d,false]], [true]],
+[[[a, true], [b,  true],[c,true],[d,false]], [true]],
+[[[a, false], [b,  false],[c,false],[d,false]], [true]]
+],F).
+
+F=[[not,d],[not,[d,and,a]],[not,[d,and,b]],[not,[d,and,c]],[not,[d,and,[a,and,b]]],[not,[d,and,[a,and,c]]],[not,[d,and,[a,or,b]]],[not,[d,and,[a,or,c]]],[not,[d,and,[b,and,a]]],[not,[d,and,[b,and,c]]],[not,[d,and,[b,or,a]]],[not,[d,and,[b,or,c]]],[not,[d,and,[c,and,a]]],[not,[d,and,[c,and,b]]],[not,[d,and,[c,or,a]]],[not,[d,and,[c,or,b]]],[not,[[d,and,a],and,b]],[not,[[d,and,a],and,c]],[not,[[d,and,b],and,a]],[not,[[d,and,b],and,c]],[not,[[d,and,c],and,a]],[not,[[d,and,c],and,b]]]
 
 **/
  
+logic_ff0(Specs,Formula0) :-
+	Specs=[[A1,A2]|A3],
+	findall(B,logic_ff1(A1,A1,A2,B),C),
+	logic_ff01(A3,C,Formula0),
+	writeln(Formula0).
+	
+logic_ff01([],Formula,Formula) :- !.
+logic_ff01(Specs,Formula1,Formula2) :-
+	Specs=[[A1,A2]|A3],
+	findall(B,logic_ff1(A1,A1,A2,B),C),
+	intersection(Formula1,C,Formula4),
+	sort(Formula4,Formula5),
+	logic_ff01(A3,Formula5,Formula2).
 
+	
 logic_ff1(Columns1,Columns2,Result,Formula1) :-
         member(Column,Columns1),
         Column=[Name|_Rest],
