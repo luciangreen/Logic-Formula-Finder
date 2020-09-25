@@ -11,10 +11,14 @@ logic_ff0([
 F=[[not,d],[not,[a,and,[d,and,[b,and,c]]]],[not,[a,and,[d,and,[b,or,c]]]],[not,[a,and,[d,and,[c,and,b]]]],[not,[a,and,[d,and,[c,or,b]]]],[not,[a,and,[d,and,[not,[b,and,c]]]]],[not,[a,and,[d,and,[not,[b,or,c]]]]],[not,[a,and,[d,and,[not,[c,and,b]]]]],[not,[a,and,[d,and,[not,[c,or,b]]]]],[not,[a,and,[[d,and,b],and,c]]],[not,[a,and,[[d,and,c],and,b]]],[not,[a,and,[[not,[d,or,c]],and,b]]],[not,[b,and,[d,and,[a,and,c]]]],[not,[b,and,[d,and,[a,or,c]]]],[not,[b,and,[d,and,[c,and,a]]]],[not,[b,and,[d,and,[c,or,a]]]],...
 
 logic_ff0([                                                         [[[a, true]], [false]],[[[a,false]], [true]]],F).
-F=[[not,a],[not,b],[not,[a,and,b]],[not,[a,or,b]],[not,[b,and,a]],[not,[b,or,a]]]
+F = [[not, a]].
 
 logic_ff0([                                                         [[[a, true]], [true]],[[[a,false]], [false]]],F).
 F = [[a]].
+
+logic_ff0([                                                         [[[a, true],[b, true]], [false]],[[[a,false],[b, false]], [true]]],F).
+F=[[not,a],[not,b],[not,[a,and,b]],[not,[a,or,b]],[not,[b,and,a]],[not,[b,or,a]]]
+
 **/
  
 logic_ff0(Specs,Formula0) :-
