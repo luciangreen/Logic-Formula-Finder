@@ -10,6 +10,12 @@ logic_ff0([
 
 F=[[not,d],[not,[d,and,a]],[not,[d,and,b]],[not,[d,and,c]],[not,[d,and,[a,and,b]]],[not,[d,and,[a,and,c]]],[not,[d,and,[a,or,b]]],[not,[d,and,[a,or,c]]],[not,[d,and,[b,and,a]]],[not,[d,and,[b,and,c]]],[not,[d,and,[b,or,a]]],[not,[d,and,[b,or,c]]],[not,[d,and,[c,and,a]]],[not,[d,and,[c,and,b]]],[not,[d,and,[c,or,a]]],[not,[d,and,[c,or,b]]],[not,[[d,and,a],and,b]],[not,[[d,and,a],and,c]],[not,[[d,and,b],and,a]],[not,[[d,and,b],and,c]],[not,[[d,and,c],and,a]],[not,[[d,and,c],and,b]]]
 
+logic_ff0([                                                         [[[a, true]], [false]],[[[a,false]], [true]]],F).
+F = [[not, a]].
+
+logic_ff0([                                                         [[[a, true]], [true]],[[[a,false]], [false]]],F).
+F = [[a]].
+
 **/
  
 logic_ff0(Specs,Formula0) :-
@@ -34,6 +40,8 @@ logic_ff1(Columns1,Columns2,Result,Formula1) :-
 	Formula2=Name,
         logic_ff2(Columns1,Columns3,Result,Formula2,Formula3),
 	list(Formula3,Formula1).
+logic_ff2([[A, true]],[],[false],A,[not,A]):-!.
+logic_ff2([[A, false]],[],[true],A,[not,A]):-!.
 logic_ff2(_Columns1,[],_Result,Formula,Formula).
 logic_ff2(Columns1,Columns2,Result,Formula1,Formula2) :-
 	member(Column,Columns2),
