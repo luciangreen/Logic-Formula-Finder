@@ -22,17 +22,15 @@ Please read the following instructions on how to install the project on your com
 * Load with ['logic_ff1.pl'].
 * In swipl, run with: 
 ```
-logic_ff1([[a, true], [b, false],[c,true]],[[a, true], [b,  false],[c,true]], [true],F).
+?- logic_ff1([[a, true],[b,false],[c,true],[d,false]],[[a,ßtrue],[b,false],[c,true],[d,false]], [true],F).
 ```
 to find formulae with a=true, b=false, c=true with a result true and some results:
 ```
-F = [[a, and, c], or, b] 
-F = [[a, or, c], or, b] ;
-F = [a, or, [b, and, c]] ;
-F = [a, or, [b, or, c]] ;
-F = [[a, or, b], and, c] ;
-F = [a, and, [c, or, b]] ;
-F = [not, b] ;
+F = [[[a, or, d], and, c], or, b] ;
+F = [[a, and, [c, or, d]], or, b] ;
+F = [[a, and, c], or, [b, and, d]] ;
+F = [[a, and, c], or, [b, or, d]] ;
+F = [not, d] ;
 .
 .
 .

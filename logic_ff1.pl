@@ -5,42 +5,12 @@
 
 /**
 
-?- logic_ff1([[a, true], [b, false],[c,true]],[[a, true], [b,  false],[c,true]], [true],F).
-F = [[a, and, c], or, b] 
-F = [[a, or, c], or, b] ;
-F = [a, or, [b, and, c]] ;
-F = [a, or, [b, or, c]] ;
-F = [[a, or, b], and, c] ;
-F = [a, and, [c, or, b]] ;
-F = [not, b] ;
-F = [[a, and, b], or, c] ;
-F = [[a, or, b], or, c] ;
-F = [a, or, [c, and, b]] ;
-F = [a, or, [c, or, b]] ;
-F = [not, b] ;
-F = [not, [b, and, c]] ;
-F = [[b, and, c], or, a] ;
-F = [[b, or, c], or, a] ;
-F = [b, or, [a, and, c]] ;
-F = [b, or, [a, or, c]] ;
-F = [[b, and, a], or, c] ;
-F = [[b, or, a], or, c] ;
-F = [b, or, [c, and, a]] ;
-F = [b, or, [c, or, a]] ;
-F = [[c, or, b], and, a] ;
-F = [c, and, [a, or, b]] ;
-F = [not, b] ;
-F = [[c, and, b], or, a] ;
-F = [[c, or, b], or, a] ;
-F = [c, or, [a, and, b]] ;
-F = [c, or, [a, or, b]] ;
-F = [not, b] ;
-F = [[c, and, a], or, b] ;
-F = [[c, or, a], or, b] ;
-F = [c, or, [b, and, a]] ;
-F = [c, or, [b, or, a]] ;
-F = [not, [b, and, a]] ;
-false.
+?- logic_ff1([[a, true], [b, false],[c,true],[d,false]],[[a, true], [b,  false],[c,true],[d,false]], [true],F).
+F = [[[a, or, d], and, c], or, b] ;
+F = [[a, and, [c, or, d]], or, b] ;
+F = [[a, and, c], or, [b, and, d]] ;
+F = [[a, and, c], or, [b, or, d]] ;
+F = [not, d] ;
 
 **/
  
