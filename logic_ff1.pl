@@ -8,13 +8,13 @@ logic_ff0([
 [[[a, false], [b,  false],[c,false],[d,false]], [true]]
 ],F).
 
-F=[[not,d],[not,[d,and,a]],[not,[d,and,b]],[not,[d,and,c]],[not,[d,and,[a,and,b]]],[not,[d,and,[a,and,c]]],[not,[d,and,[a,or,b]]],[not,[d,and,[a,or,c]]],[not,[d,and,[b,and,a]]],[not,[d,and,[b,and,c]]],[not,[d,and,[b,or,a]]],[not,[d,and,[b,or,c]]],[not,[d,and,[c,and,a]]],[not,[d,and,[c,and,b]]],[not,[d,and,[c,or,a]]],[not,[d,and,[c,or,b]]],[not,[[d,and,a],and,b]],[not,[[d,and,a],and,c]],[not,[[d,and,b],and,a]],[not,[[d,and,b],and,c]],[not,[[d,and,c],and,a]],[not,[[d,and,c],and,b]]]
+F=[[not,d],[not,[a,and,[d,and,[b,and,c]]]],[not,[a,and,[d,and,[b,or,c]]]],[not,[a,and,[d,and,[c,and,b]]]],[not,[a,and,[d,and,[c,or,b]]]],[not,[a,and,[d,and,[not,[b,and,c]]]]],[not,[a,and,[d,and,[not,[b,or,c]]]]],[not,[a,and,[d,and,[not,[c,and,b]]]]],[not,[a,and,[d,and,[not,[c,or,b]]]]],[not,[a,and,[[d,and,b],and,c]]],[not,[a,and,[[d,and,c],and,b]]],[not,[a,and,[[not,[d,or,c]],and,b]]],[not,[b,and,[d,and,[a,and,c]]]],[not,[b,and,[d,and,[a,or,c]]]],[not,[b,and,[d,and,[c,and,a]]]],[not,[b,and,[d,and,[c,or,a]]]],...
 
 logic_ff0([                                                         [[[a, true]], [false]],[[[a,false]], [true]]],F).
 F = [[not, a]].
 
 logic_ff0([                                                         [[[a, true]], [true]],[[[a,false]], [false]]],F).
-F = [[a]].
+F=[[not,a],[not,b],[not,[a,and,b]],[not,[a,or,b]],[not,[b,and,a]],[not,[b,or,a]]]
 
 **/
  
@@ -99,6 +99,13 @@ appendlogic(Formula1,Name,Formula2) :-
 	atom(Formula1),append([Formula1],[and,Name],Formula2).
 appendlogic(Formula1,Name,Formula2) :-
 	atom(Formula1), append([Formula1],[or,Name],Formula2).
+
+appendlogic(Formula1,Name,Formula2) :-
+	atom(Formula1),append([Formula1],[and,Name],Formula3),
+	Formula2=[not,Formula3].
+appendlogic(Formula1,Name,Formula2) :-
+	atom(Formula1), append([Formula1],[or,Name],Formula3),
+	Formula2=[not,Formula3].
 
 
 appendlogic(F,
