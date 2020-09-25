@@ -29,10 +29,8 @@ Please read the following instructions on how to install the project on your com
 [[[a, true], [b,  true],[c,true],[d,false]], [true]],
 [[[a, false], [b,  false],[c,false],[d,false]], [true]]
 ],F).
-
-
 ```
-to find formulae with this set of specs (concluding with the result at the end of each line and some results:
+to find formulae with this set of specs (concluding with the result at the end of each line) and some results:
 ```
 F=[[not,d],[not,[d,and,a]],[not,[d,and,b]],[not,[d,and,c]],[not,[d,and,[a,and,b]]],[not,[d,and,[a,and,c]]],[not,[d,and,[a,or,b]]],[not,[d,and,[a,or,c]]],[not,[d,and,[b,and,a]]],[not,[d,and,[b,and,c]]],[not,[d,and,[b,or,a]]],[not,[d,and,[b,or,c]]],[not,[d,and,[c,and,a]]],[not,[d,and,[c,and,b]]],[not,[d,and,[c,or,a]]],[not,[d,and,[c,or,b]]],[not,[[d,and,a],and,b]],[not,[[d,and,a],and,c]],[not,[[d,and,b],and,a]],[not,[[d,and,b],and,c]],[not,[[d,and,c],and,a]],[not,[[d,and,c],and,b]]]
 ```
