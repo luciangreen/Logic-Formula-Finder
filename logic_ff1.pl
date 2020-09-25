@@ -156,7 +156,7 @@ and1([true],[false],[],[false]):-!.
 and1([false],[false],[],[false]):-!.
 or([false],[false],[false]):-!.
 or([true],[false],[true]):-!.
-or([false],[true],[false]):-!.
+or([false],[true],[true]):-!.
 or([true],[true],[true]):-!.
 not([true],[],[false]):-!.
 not([false],[],[true]):-!.
