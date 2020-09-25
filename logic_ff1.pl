@@ -19,6 +19,9 @@ F = [[a]].
 logic_ff0([                                                         [[[a, true],[b, true]], [false]],[[[a,false],[b, false]], [true]]],F).
 F=[[not,a],[not,b],[not,[a,and,b]],[not,[a,or,b]],[not,[b,and,a]],[not,[b,or,a]]]
 
+
+logic_ff0([                                                         [[[a, true],[b, false]], [false]],[[[a,false],[b, true]], [true]]],F).
+F = [[not, a]].
 **/
  
 logic_ff0(Specs,Formula0) :-
