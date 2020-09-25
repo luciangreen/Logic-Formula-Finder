@@ -91,6 +91,10 @@ logic_ff3(Columns,Result1,Formula1) :-
 appendlogic([Formula1,Operator,Formula2],Name2,Formula3) :-
 	appendlogic(Formula1,Name2,Formula4),
 	Formula3=[Formula4,Operator,Formula2].
+
+
+
+
 appendlogic([Formula1,Operator,Formula2],Name2,Formula3) :-
         appendlogic(Formula2,Name2,Formula4),
         Formula3=[Formula1,Operator,Formula4].
@@ -147,8 +151,12 @@ list(Formula,Formula) :-
 	not(atom(Formula)).
 	
 and1([true],[true],[],[true]):-!.
-and1(_,_,[],[false]):-!.
+and1([false],[true],[],[false]):-!.
+and1([true],[false],[],[false]):-!.
+and1([false],[false],[],[false]):-!.
 or([false],[false],[false]):-!.
-or(_,_,[true]):-!.
+or([true],[false],[true]):-!.
+or([false],[true],[false]):-!.
+or([true],[true],[true]):-!.
 not([true],[],[false]):-!.
 not([false],[],[true]):-!.
