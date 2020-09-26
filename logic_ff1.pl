@@ -1,5 +1,7 @@
 /**
 
+%% Popology > An object can be human like > 24
+
 logic_ff0([
 [[[a, true], [b,  false],[c,true],[d,false]], [true]],
 [[[a, true], [b,  false],[c,false],[d,false]], [true]],
