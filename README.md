@@ -9,24 +9,32 @@ Please read the following instructions on how to install the project on your com
 
 # Prerequisites
 
-* Install <a href="https://www.swi-prolog.org/build/">SWI-Prolog</a> for your machine.
+* Please download and install SWI-Prolog for your machine at `https://www.swi-prolog.org/build/`.
 
-# Installation from List Prolog Package Manager (LPPM)
+# 1. Install manually
 
-* Optionally, you can install from LPPM by installing <a href="https://www.swi-prolog.org/build/">SWI-Prolog</a> for your machine, downloading the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>,
+Download <a href="http://github.com/luciangreen/Logic-Formula-Finder/">this repository</a>.
+
+# 2. Or Install from List Prolog Package Manager (LPPM)
+
+* Download the <a href="https://github.com/luciangreen/List-Prolog-Package-Manager">LPPM Repository</a>:
+
 ```
 git clone https://github.com/luciangreen/List-Prolog-Package-Manager.git
 cd List-Prolog-Package-Manager
 swipl
+['lppm'].
+lppm_install("luciangreen","Logic-Formula-Finder")
+halt
 ```
-loading LPPM with `['lppm'].` then installing the package by running `lppm_install("luciangreen","Logic-Formula-Finder").`.
 
-# Installing and Running Logic Formula Finder
+# Running
 
-* Install by downloading the prerequisites above and saving in folders next to each other or by using LPPM above.
-* Run swipl
-* Load with ['logic_ff1.pl'].
-* In swipl, run with: 
+* In Shell:
+`cd Logic-Formula-Finder`
+`swipl`
+`['logic_ff1.pl'].`
+* Run with: 
 ```
 ?- logic_ff0([
 [[[a, true], [b,  false],[c,true],[d,false]], [true]],
